@@ -17,18 +17,7 @@ function getSiteFromUrl(url) {
   var match = url.match(siteRegexp);
   if (match) {
     /* Check the ignored list. */
-    var ignoredSites = localStorage["ignoredSites"];
-    if (!ignoredSites) {
-      ignoredSites = [];
-    } else {
-      ignoredSites = JSON.parse(ignoredSites);
-    }
-    for (i in ignoredSites) {
-      if (ignoredSites[i] == match[1]) {
-        console.log("Site is on ignore list: " + match[1]);
-        return null;
-      }
-    }
+    
     return match[1];
   }
   return null;
